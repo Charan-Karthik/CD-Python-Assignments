@@ -42,8 +42,13 @@ students = [
 
 def iterateDictionary(list):
     for i in range(len(students)):
+        display_string = ""
         for key, value in students[i].items():
-            print(key, "-", value)
+            if key != 'last_name':
+                display_string = display_string + str(key) + " - " + str(value) + ", "
+            else:
+                display_string = display_string + str(key) + " - " + str(value)
+        print(display_string)
 iterateDictionary(students)
 
 
