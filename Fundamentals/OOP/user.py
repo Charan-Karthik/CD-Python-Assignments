@@ -40,8 +40,8 @@ user1.display_info()
 user1.enroll()
 # user1.display_info()
 
-user2 = User("Kaguya", "Shinomiya", "shinomiya_kaguya@gmail.com", 18)
-user3 = User("Miyuki", "Shirogane", "shiromiyu@gmail.com", 19)
+user2 = User("Kaguya", "Shinomiya", "shinomiya_kaguya@gmail.com", 17)
+user3 = User("Miyuki", "Shirogane", "shiromiyu@gmail.com", 18)
 
 user1.spend_points(50)
 # user1.display_info()
@@ -51,3 +51,6 @@ user2.spend_points(80)
 user1.display_info()
 user2.display_info()
 user3.display_info()
+
+user1.enroll()
+user3.spend_points(40)
