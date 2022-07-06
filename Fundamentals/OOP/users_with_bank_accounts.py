@@ -44,7 +44,16 @@ class User:
 
         return self
 
+    def make_withdrawal(self, amount):
+        self.account.withdraw(amount)
+
+        return self
+
+    def display_user_balance(self):
+        self.account.display_account_info()
+
 user1 = User("Zoro", "bestswordsman@gmail.com")
 user1.make_deposit(100)
+user1.make_withdrawal(50)
 
-user1.account.display_account_info()
+user1.display_user_balance()
