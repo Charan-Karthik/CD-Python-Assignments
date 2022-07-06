@@ -45,12 +45,13 @@ class BankAccount:
     def all_instances(cls):
         for account in cls.all_accounts:
             print(account) # currently only prints the location in memory and not the name of the instance itself. need to debug this still.
+            # account.display_account_info()
 
 
 account1 = BankAccount(0.1, 500)
 account2 = BankAccount()
 
-account1.deposit(200).deposit(300).withdraw(250).yield_interest().display_account_info()
-account2.deposit(100).deposit(150).withdraw(50).withdraw(100).withdraw(50).withdraw(100).yield_interest().display_account_info()
+# account1.deposit(200).deposit(300).withdraw(250).yield_interest().display_account_info()
+# account2.deposit(100).deposit(150).withdraw(50).withdraw(100).withdraw(50).withdraw(100).yield_interest().display_account_info()
 
 BankAccount.all_instances()
