@@ -51,9 +51,13 @@ class User:
 
     def display_user_balance(self):
         self.account.display_account_info()
+        # print(self.account.balance())
 
 user1 = User("Zoro", "bestswordsman@gmail.com")
 user1.make_deposit(100)
 user1.make_withdrawal(50)
 
+# user1.account.display_account_info()
 user1.display_user_balance()
+
+# STILL WORKING ON SENSEI AND SENPAI BONUSES
