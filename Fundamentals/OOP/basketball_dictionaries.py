@@ -85,5 +85,3 @@ players = [
         "team": "Chicago Bulls"
     }
 ]
-
-print(get_team(players))
