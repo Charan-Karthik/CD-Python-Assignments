@@ -20,7 +20,6 @@ class Player:
 
         return new_team
 
-
 kevin = {
     "name": "Kevin Durant",
     "age": 34,
@@ -85,3 +84,11 @@ players = [
         "team": "Chicago Bulls"
     }
 ]
+
+# Challenge 3
+player_instances = []
+
+for i in range(len(players)):
+    new_player = Player(players[i])
+    player_instances.append(new_player)
+    print(player_instances)
