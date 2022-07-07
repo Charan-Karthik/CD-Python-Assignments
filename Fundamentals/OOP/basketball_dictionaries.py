@@ -4,7 +4,7 @@ class Player:
         self.age = dictionary["age"]
         self.position = dictionary["position"]
         self.team = dictionary["team"]
-    
+
     def display_player_info(self):
         print("Name:", self.name)
         print("age:", self.age)
@@ -12,22 +12,31 @@ class Player:
         print("team:", self.team)
         print()
 
+    @classmethod
+    def get_team(cls, team_list):
+        new_team = []
+        for player in team_list:
+            new_team.append(cls(player))
+
+        return new_team
+
+
 kevin = {
-        "name": "Kevin Durant", 
-        "age":34, 
-        "position": "small forward", 
-        "team": "Brooklyn Nets"
+    "name": "Kevin Durant",
+    "age": 34,
+    "position": "small forward",
+    "team": "Brooklyn Nets"
 }
 jason = {
-        "name": "Jason Tatum", 
-        "age":24, 
-        "position": "small forward", 
-        "team": "Boston Celtics"
+    "name": "Jason Tatum",
+    "age": 24,
+    "position": "small forward",
+    "team": "Boston Celtics"
 }
 kyrie = {
-        "name": "Kyrie Irving", 
-        "age":32, "position": "Point Guard", 
-        "team": "Brooklyn Nets"
+    "name": "Kyrie Irving",
+    "age": 32, "position": "Point Guard",
+    "team": "Brooklyn Nets"
 }
 
 player1 = Player(kevin)
@@ -40,38 +49,41 @@ player3.display_player_info()
 
 players = [
     {
-    	"name": "Kevin Durant", 
-    	"age":34, 
-    	"position": "small forward", 
-    	"team": "Brooklyn Nets"
+        "name": "Kevin Durant",
+        "age": 34,
+        "position": "small forward",
+        "team": "Brooklyn Nets"
     },
     {
-    	"name": "Jason Tatum", 
-    	"age":24, 
-    	"position": "small forward", 
-    	"team": "Boston Celtics"
+        "name": "Jason Tatum",
+        "age": 24,
+        "position": "small forward",
+        "team": "Boston Celtics"
     },
     {
-    	"name": "Kyrie Irving", 
-    	"age":32, "position": "Point Guard", 
-    	"team": "Brooklyn Nets"
+        "name": "Kyrie Irving",
+        "age": 32,
+        "position": "Point Guard",
+        "team": "Brooklyn Nets"
     },
     {
-    	"name": "Damian Lillard", 
-    	"age":33, "position": "Point Guard", 
-    	"team": "Portland Trailblazers"
+        "name": "Damian Lillard",
+        "age": 33,
+        "position": "Point Guard",
+        "team": "Portland Trailblazers"
     },
     {
-    	"name": "Joel Embiid", 
-    	"age":32, "position": "Power Foward", 
-    	"team": "Philidelphia 76ers"
+        "name": "Joel Embiid",
+        "age": 32,
+        "position": "Power Foward",
+        "team": "Philidelphia 76ers"
     },
     {
-    	"name": "", 
-    	"age":16, 
-    	"position": "P", 
-    	"team": "en"
+        "name": "DeMar DeRozan",
+        "age": 32,
+        "position": "Shooting Guard",
+        "team": "Chicago Bulls"
     }
 ]
 
-# still working on challenge 3 and NINJA bonus
+print(get_team(players))
