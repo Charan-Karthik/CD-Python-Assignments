@@ -12,7 +12,7 @@ def display_counter():
 
 @app.route("/addtwo", methods=['post'])
 def addtwo():
-    session['count'] += 1
+    session['count'] += 1 # since the redirect adds one, even though this is addtwo it should still increment by 1
     return redirect('/')
 
 @app.route("/destroy_session", methods=['post'])
