@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Number Game</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <div class="d-flex align-items-center justify-content-center flex-column text-center">
+        <h1>Welcome to the Great Number Game</h1>
+        <p>I am thinking of a number between 1 and 100</p>
+        <form action="/guess" method="post" class="mt-5 text-center">
+            <label for="guess" class="mb-2">Take a guess!</label>
+            <input type="number" name="guess" class="form-control mb-2">
+            <input type="submit" value="Guess" class="btn btn-warning text-center">
+        </form>
+        {% if 'guess' in session %}
+            {% if session['guess'] == session['num'] %}
+                <h2 class="mt-5">Congrats! You got the number!</h2>
+                <form action="/reset" method="post" class="mt-5 text-center">
+                    <input type="submit" value="Click Here to Play Again" class="btn btn-primary">
+                </form>
+            {% elif session['guess'] < session['num'] %}
+                <h2 class="mt-5">Too low! Try again.</h2>
+            {% elif session['guess'] > session['num'] %}
+                <h2 class="mt-5">Too high! Try again.</h2>
+            {% endif %}
+        {% endif %}
+    </div>
+    
+</body>
+</html>
