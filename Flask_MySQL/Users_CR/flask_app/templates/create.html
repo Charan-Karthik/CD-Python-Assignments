@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create User</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <h1 class="text-center">Add A New User</h1>
+    <form class="d-block w-50 mx-auto my-3" action="/users/create" method="post">
+        <div class="mb-3">
+            <label for="first_name" class="form-label">First Name</label>
+            <input type="text" name="first_name" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="last_Name" class="form-label">Last Name</label>
+            <input type="text" name="last_Name" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">E-Mail</label>
+            <input type="text" name="email" class="form-control">
+        </div>
+        <input type="submit" class="btn btn-primary">
+    </form>
+    <div class="d-flex align-items-center justify-content-center">
+        <a href="/" class="btn btn-dark mx-auto">Return to Users</a>
+    </div>
+</body>
+</html>
