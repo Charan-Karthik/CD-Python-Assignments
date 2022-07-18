@@ -25,3 +25,20 @@ class User:
     
         result = connectToMySQL('users_schema').query_db(query, data)
         return result
+    
+    @classmethod
+    def get_user(cls, data):
+        query = "SELECT * FROM users WHERE id=%(id)s"
+        result = connectToMySQL('users_schema').query_db(query, data)
+
+        return cls(result[0])
+    
+    @classmethod
+    def update(cls,data):
+        query = "UPDATE users SET first_name=%(first_name)s,last_Name=%(last_Name)s,email=%(email)s,updated_at=NOW() WHERE id = %(id)s;"
+        return connectToMySQL('users_schema').query_db(query,data)
+    
+    @classmethod
+    def delete_user(cls, data):
+        query = "DELETE FROM users WHERE id=%(id)s"
+        return connectToMySQL('users_schema').query_db(query,data)

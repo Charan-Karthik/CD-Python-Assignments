@@ -17,6 +17,7 @@
                 <th>Full Name</th>
                 <th>Email</th>
                 <th>Created At</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -25,11 +26,18 @@
                     <td>{{user.id}}</td>
                     <td>{{user.first_name}} {{user.last_Name}}</td>
                     <td>{{user.email}}</td>
-                    <td>{{user.created_at}}</td>
+                    <td>{{ user.created_at.strftime("%b %d %Y") }}</td>
+                    <td>
+                        <a href="/user/{{user.id}}">Show</a>
+                        |
+                        <a href="/user/update/{{user.id}}">Edit</a>
+                        |
+                        <a href="/delete/{{user.id}}">Delete</a>
+                    </td>
                 </tr>
             {% endfor %}
         </tbody>
     </table>
-    <a href="/users/new" class="btn btn-primary btn-lg">Click Here to Add another User</a>
+    <a href="/user/new" class="btn btn-primary btn-lg">Click Here to Add another User</a>
 </body>
 </html>
