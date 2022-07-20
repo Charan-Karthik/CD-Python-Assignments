@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Share - Main</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <h1 class="text-center">Welcome {{user_in_db.first_name}}</h1>
+    <div class="d-flex justify-content-around">
+        <div>
+            <p>All posted recipes:</p>
+        </div>
+        <div>
+            <a href="/recipies/create">+ Create</a>
+            <a href="/"><input type="submit" value="Log Out" class="btn btn-danger"></a>
+        </div>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Under 30 min?</th>
+            <th>Posted By</th>
+            <th>Actions</th>
+        </tr>
+        {% for recipe in all_recipies %}
+            <tr>
+                <td>{{recipe.name}}</td>
+                <td>
+                    {% if recipe.under_30 == 0 %}
+                        No
+                    {% else %}
+                        Yes
+                    {% endif %}
+                </td>
+
+                <td>{{recipe.poster.first_name}}</td>
+                
+                <td>
+                    <a href="/show/recipe/{{recipe.id}}">View</a>
+                    {% if session["user_id"] == recipe.user_id %}
+                        | <a href="/edit/recipe/{{recipe.id}}">Edit</a> |
+                        <a href="/delete/{{recipe.id}}">Delete</a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Share - Recipe</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+</head>
+<body>
+    <div class="d-flex justify-content-around">
+        <a href="/main">back to recipes</a>
+        <a href="/">logout</a>
+    </div>
+    <h1 class="text-center">Welcome {{user_in_db.first_name}}</h1>
+    
+    <div class="d-flex justify-content-around">
+        <h2>{{one_recipe.name}}</h2>
+        <h4> Posted by {{one_recipe.user_id}} </h4>
+    </div>
+
+    <div class="text-center d-block w-50 mx-auto" style="border: solid 2px black">
+        <div><b>Description:</b> {{one_recipe.description}}</div>
+        <div>
+            <b>Under 30 Minutes?</b>
+            {% if one_recipe.under_30 == 0 %}
+                No
+            {% else %}
+                Yes
+            {% endif %}
+        </div>
+        <div><b>Instructions:</b> {{one_recipe.instructions}}</div>
+        <div><b>Date Made:</b> {{one_recipe.date_made}}</div>
+    </div>
+</body>
+</html>
