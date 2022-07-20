@@ -33,8 +33,13 @@ def show_recipe(id):
 
     one_recipe = Recipe.get_one_recipe({"id":id})
     all_recipies = Recipe.get_all()
+
+    user_data = {
+        "id": one_recipe.user_id
+    }
+    user = User.get_one_by_id(user_data)
     
-    return render_template("show_recipe.html", user_in_db=user_in_db, one_recipe=one_recipe, all_recipies=all_recipies)
+    return render_template("show_recipe.html", user_in_db=user_in_db, one_recipe=one_recipe, all_recipies=all_recipies, user=user)
 
 @app.route('/edit/recipe/<int:id>')
 def edit_recipe(id):
